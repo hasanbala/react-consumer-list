@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import AddUser from "./component/AddUser";
+import Navbar from "./component/Navbar";
+import Users from "./component/Users";
+// import Users from "./component/Users";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  // deleteUser = (id) => {
+  //   this.setState({
+  //     users: this.state.users.filter((user) => id !== user.id),
+  //   });
+  // };
+  render() {
+    // const { users } = this.state;
+    return (
+      <div>
+        <Navbar title="user app" />
+        {/* <Users deleteUser={this.deleteUser} users={users} /> */}
+        <AddUser />
+        <Users />
+      </div>
+    );
+  }
 }
 
 export default App;
