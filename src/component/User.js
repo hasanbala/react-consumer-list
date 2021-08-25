@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import UserConsumer from "../context";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class User extends Component {
   //   static defaultProps = {
@@ -36,7 +37,7 @@ class User extends Component {
   };
 
   render() {
-    const { name, department, salary } = this.props;
+    const { name, department, salary, id } = this.props;
     const { test } = this.state;
     const { isVisible } = this.state;
 
@@ -76,14 +77,13 @@ class User extends Component {
                     <p className="card-text">department: {department}</p>
                     <p className="card-text">salary: {salary}</p>
                     <p className="card-text">test: {test}</p>
-                    <button
-                      // onClick={}
+                    <Link
+                      to={`edit/${id}`}
                       className="btn btn-primary btn-block"
-                      type="submit"
                       style={{ color: "#fff" }}
                     >
                       update user
-                    </button>
+                    </Link>
                   </div>
                 ) : null}
               </div>

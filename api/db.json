@@ -1,10 +1,10 @@
 {
   "users": [
     {
-      "id": "unique-1",
       "name": "john rambo",
+      "department": "war intelligience",
       "salary": "500",
-      "department": "war intelligience"
+      "id": "unique-1"
     },
     {
       "id": "unique-3",
@@ -17,6 +17,12 @@
       "department": "old kicker",
       "salary": "25000",
       "id": "z790NED"
+    },
+    {
+      "name": "c-134",
+      "department": "history and geoglogy",
+      "salary": "9000",
+      "id": "GuPQYOe"
     }
   ]
 }
