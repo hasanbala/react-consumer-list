@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": "unique-1",
+      "name": "john rambo",
+      "salary": "500",
+      "department": "war intelligience"
+    },
+    {
+      "id": "unique-3",
+      "name": "granada da",
+      "salary": "30000",
+      "department": "classified"
+    },
+    {
+      "name": "blaaool",
+      "department": "old kicker",
+      "salary": "25000",
+      "id": "z790NED"
+    }
+  ]
+}

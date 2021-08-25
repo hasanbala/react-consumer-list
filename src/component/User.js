@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import UserConsumer from "../context";
+import axios from "axios";
 
 class User extends Component {
   //   static defaultProps = {
@@ -27,9 +28,10 @@ class User extends Component {
     });
   };
 
-  ondeleteUser = (dispatch, e) => {
+  ondeleteUser = async (dispatch, e) => {
     const { id } = this.props;
     // deleteUser(id);
+    await axios.delete(`http://localhost:3002/users/${id}`);
     dispatch({ type: "DELETE_USER", payload: id });
   };
 
@@ -74,6 +76,14 @@ class User extends Component {
                     <p className="card-text">department: {department}</p>
                     <p className="card-text">salary: {salary}</p>
                     <p className="card-text">test: {test}</p>
+                    <button
+                      // onClick={}
+                      className="btn btn-primary btn-block"
+                      type="submit"
+                      style={{ color: "#fff" }}
+                    >
+                      update user
+                    </button>
                   </div>
                 ) : null}
               </div>
