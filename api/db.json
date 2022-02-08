@@ -1,28 +1,40 @@
 {
   "users": [
     {
-      "name": "john rambo",
-      "department": "war intelligience",
-      "salary": "500",
-      "id": "unique-1"
+      "name": "Ricky Sanchez",
+      "department": "Scientist",
+      "salary": "999999",
+      "id": "UWeRxxY"
     },
     {
-      "id": "unique-3",
-      "name": "granada da",
-      "salary": "30000",
-      "department": "classified"
+      "name": "Leanne Graham",
+      "department": "Photographer ",
+      "salary": "55600",
+      "id": "Je9IIpP"
     },
     {
-      "name": "blaaool",
-      "department": "old kicker",
-      "salary": "25000",
-      "id": "z790NED"
+      "name": "Kurtis Weissnat",
+      "department": "Detective ",
+      "salary": "105412",
+      "id": "jSzGkWG"
     },
     {
-      "name": "c-134",
-      "department": "history and geoglogy",
-      "salary": "9000",
-      "id": "GuPQYOe"
+      "name": "Nicholas Runolfsdottir",
+      "department": "Politician ",
+      "salary": "558899",
+      "id": "8QyaQTP"
+    },
+    {
+      "name": "Clementina DuBuque",
+      "department": "Pharmacist ",
+      "salary": "11223366",
+      "id": "bFi43Ja"
+    },
+    {
+      "name": "Patricia Lebsack",
+      "department": "Firefighter",
+      "salary": "55446",
+      "id": "w6M3x62"
     }
   ]
 }

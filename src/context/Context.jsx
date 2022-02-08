@@ -1,7 +1,6 @@
-import axios from "axios";
 import React, { Component } from "react";
 
-const UserContext = React.createContext();
+const User = React.createContext();
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -18,8 +17,8 @@ const reducer = (state, action) => {
     case "UPDATE_USER":
       return {
         ...state,
-        users: state.users.map((data) =>
-          data.id === action.payload.id ? action.payload : data
+        users: state.users.map((user) =>
+          action.payload.id === user.id ? action.payload : user
         ),
       };
     default:
@@ -36,21 +35,17 @@ export class UserProvider extends Component {
   };
 
   componentDidMount = async () => {
-    const response = await axios.get("http://localhost:3002/users");
+    const response = await fetch("http://localhost:3002/users");
+    const data = await response.json();
     this.setState({
-      users: response.data,
+      users: data,
     });
   };
 
   render() {
     return (
-      <UserContext.Provider value={this.state}>
-        {this.props.children}
-      </UserContext.Provider>
+      <User.Provider value={this.state}>{this.props.children}</User.Provider>
     );
   }
 }
-
-const UserConsumer = UserContext.Consumer;
-
-export default UserConsumer;
+export const UserConsumer = User.Consumer;
