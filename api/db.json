@@ -1,12 +1,6 @@
 {
   "users": [
     {
-      "name": "Ricky Sanchez",
-      "department": "Scientist",
-      "salary": "999999",
-      "id": "UWeRxxY"
-    },
-    {
       "name": "Leanne Graham",
       "department": "Photographer ",
       "salary": "55600",
@@ -35,6 +29,30 @@
       "department": "Firefighter",
       "salary": "55446",
       "id": "w6M3x62"
+    },
+    {
+      "name": "Kaan Uyguroglu",
+      "department": "Scientist",
+      "salary": "6100",
+      "id": "1BJqgQj"
+    },
+    {
+      "name": "name1",
+      "department": "dep1",
+      "salary": "100",
+      "id": "CyjHEUm"
+    },
+    {
+      "name": "name5",
+      "department": "dep5",
+      "salary": "5555",
+      "id": "h00J91R"
+    },
+    {
+      "name": "asdads",
+      "department": "adsasd",
+      "salary": "0",
+      "id": "VZ9fXll"
     }
   ]
 }

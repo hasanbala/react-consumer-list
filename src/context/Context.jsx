@@ -1,51 +1,35 @@
-import React, { Component } from "react";
+import React, { useEffect, useReducer, useState } from "react";
+import { reducer } from "../reducers";
 
-const User = React.createContext();
+const User = React.createContext(null);
+export const AppUseContext = () => React.useContext(User);
+const initialState = { users: [] };
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "DELETE_USER":
-      return {
-        ...state,
-        users: state.users.filter((user) => action.payload !== user.id),
-      };
-    case "ADD_USER":
-      return {
-        ...state,
-        users: [...state.users, action.payload],
-      };
-    case "UPDATE_USER":
-      return {
-        ...state,
-        users: state.users.map((user) =>
-          action.payload.id === user.id ? action.payload : user
-        ),
-      };
-    default:
-      return state;
-  }
+export const UserProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const [name, setName] = useState("");
+  const [department, setDepartment] = useState("");
+  const [salary, setSalary] = useState("");
+
+  useEffect(() => {
+    (async function () {
+      const response = await fetch("http://localhost:3002/users");
+      const data = await response.json();
+      dispatch({ type: "LOAD_USER", payload: data });
+    })();
+  }, []);
+
+  const contextValue = {
+    state,
+    dispatch,
+    name,
+    setName,
+    department,
+    setDepartment,
+    salary,
+    setSalary,
+  };
+
+  return <User.Provider value={contextValue}>{children}</User.Provider>;
 };
-
-export class UserProvider extends Component {
-  state = {
-    users: [],
-    dispatch: (action) => {
-      this.setState((state) => reducer(state, action));
-    },
-  };
-
-  componentDidMount = async () => {
-    const response = await fetch("http://localhost:3002/users");
-    const data = await response.json();
-    this.setState({
-      users: data,
-    });
-  };
-
-  render() {
-    return (
-      <User.Provider value={this.state}>{this.props.children}</User.Provider>
-    );
-  }
-}
 export const UserConsumer = User.Consumer;

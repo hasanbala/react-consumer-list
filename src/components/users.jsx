@@ -1,27 +1,21 @@
-import { UserConsumer } from "../context";
-import { User } from "./User";
+import { AppUseContext } from "../context";
+import { User } from "./user";
 
 export const Users = () => {
+  const { state } = AppUseContext();
   return (
-    <UserConsumer>
-      {(value) => {
-        const { users } = value;
+    <div>
+      {state.users.map((user) => {
         return (
-          <div>
-            {users.map((user) => {
-              return (
-                <User
-                  key={user.id}
-                  name={user.name}
-                  department={user.department}
-                  salary={user.salary}
-                  id={user.id}
-                />
-              );
-            })}
-          </div>
+          <User
+            key={user.id}
+            name={user.name}
+            department={user.department}
+            salary={user.salary}
+            id={user.id}
+          />
         );
-      }}
-    </UserConsumer>
+      })}
+    </div>
   );
 };

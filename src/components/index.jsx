@@ -1,4 +1,3 @@
-export * from "./User";
+export * from "./user";
 export * from "./users";
-export * from "./AddUser";
-export * from "./UpdateUser";
+export * from "./forms";

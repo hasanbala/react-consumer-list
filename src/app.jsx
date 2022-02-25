@@ -1,7 +1,9 @@
-import { AddUser, UpdateUser, Users } from "./components";
-import { Navbar, NotFound } from "./pages";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import "./style/app.css";
+import { AddUser, UpdateUser } from "./forms";
+import { Navbar, NotFound } from "./pages";
+import { Users } from "./components";
+import "alertifyjs/build/css/alertify.min.css";
+import "./styles/app.css";
 
 const App = () => {
   return (
