@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AppUseContext } from "../context";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import alertify from "alertifyjs";
 import "../styles/user.css";
 
@@ -8,10 +8,10 @@ export const User = (props) => {
   const [visible, setVisible] = useState(false);
   const { dispatch } = AppUseContext();
   const clickEvent = () => setVisible(!visible);
+  const { idx } = useParams();
 
   const deleteUsers = async () => {
-    const { id } = await props;
-    await fetch(`http://localhost:3002/users/${id}`, {
+    await fetch(`http://localhost:3002/users/${idx}`, {
       method: "DELETE",
       body: JSON.stringify(),
       headers: { "Content-type": "application/json; charset=UTF-8" },

@@ -22,7 +22,6 @@ export const Navbar = (props) => {
     <div className="navbar">
       <h1>
         <b>{header}</b>
-        <hr className="hr" />
       </h1>
       <ul>
         <li>
