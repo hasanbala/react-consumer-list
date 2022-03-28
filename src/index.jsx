@@ -1,7 +1,7 @@
-import React from "react";
 import ReactDOM from "react-dom";
+import React from "react";
+import { UserProvider } from "./context";
 import App from "./app";
-import { UserProvider } from "../src/context";
 import "alertifyjs/build/css/alertify.min.css";
 import "./styles/index.css";
 

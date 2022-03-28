@@ -1,16 +1,5 @@
 export const Forms = (props) => {
-  const {
-    title,
-    user,
-    changeName,
-    changeDepartment,
-    changeSalary,
-    name,
-    department,
-    salary,
-    button,
-  } = props;
-
+  const { title, user, form, button, changeForm } = props;
   return (
     <div className="adder">
       <div className="adder-head">
@@ -24,27 +13,30 @@ export const Forms = (props) => {
             <label htmlFor="name">Name</label>
             <input
               type="text"
+              name="name"
               placeholder="Enter a name"
-              value={name}
-              onChange={changeName}
+              value={form.name}
+              onChange={changeForm}
             />
           </div>
           <div className="adder-body-div">
             <label htmlFor="department">Department</label>
             <input
               type="text"
+              name="department"
               placeholder="Enter a department"
-              value={department}
-              onChange={changeDepartment}
+              value={form.department}
+              onChange={changeForm}
             />
           </div>
           <div className="adder-body-div">
             <label htmlFor="salary">Salary</label>
             <input
               type="text"
+              name="salary"
               placeholder="Enter a salary"
-              value={salary}
-              onChange={changeSalary}
+              value={form.salary}
+              onChange={changeForm}
             />
           </div>
           <button className="btn-hover color-3" type="submit">

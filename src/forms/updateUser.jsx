@@ -1,47 +1,28 @@
 import { useEffect } from "react";
 import { AppUseContext } from "../context";
 import { Forms } from "../components";
+import { useParams } from "react-router-dom";
 import alertify from "alertifyjs";
 import "../styles/addUser.css";
 
 export const UpdateUser = (props) => {
-  const {
-    dispatch,
-    name,
-    setName,
-    department,
-    setDepartment,
-    salary,
-    setSalary,
-  } = AppUseContext();
-
-  const changeName = (e) => setName(e.target.value);
-  const changeDepartment = (e) => setDepartment(e.target.value);
-  const changeSalary = (e) => setSalary(e.target.value);
+  const { dispatch, form, setForm } = AppUseContext();
+  const { id } = useParams();
 
   useEffect(() => {
     (async function () {
-      const { id } = props.match.params;
       const response = await fetch(`http://localhost:3002/users/${id}`);
       const data = await response.json();
       const { name, department, salary } = await data;
-      setName(name);
-      setDepartment(department);
-      setSalary(salary);
+      setForm({ name, department, salary });
     })();
-  }, [props.match.params, setDepartment, setName, setSalary]);
+  }, []);
 
   const updateUsers = async (e) => {
     e.preventDefault();
-    const { id } = props.match.params;
-    const newUser = {
-      name,
-      department,
-      salary,
-    };
     const response = await fetch(`http://localhost:3002/users/${id}`, {
       method: "PUT",
-      body: JSON.stringify(newUser),
+      body: JSON.stringify(form),
       headers: { "Content-type": "application/json; charset=UTF-8" },
     });
     const data = await response.json();
@@ -54,12 +35,8 @@ export const UpdateUser = (props) => {
     <Forms
       title={"Update User"}
       user={updateUsers}
-      changeName={changeName}
-      changeDepartment={changeDepartment}
-      changeSalary={changeSalary}
-      name={name}
-      department={department}
-      salary={salary}
+      changeForm={setForm}
+      form={form}
       button={"UPDATE"}
     />
   );

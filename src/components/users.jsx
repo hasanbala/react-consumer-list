@@ -3,6 +3,7 @@ import { User } from "./user";
 
 export const Users = () => {
   const { state } = AppUseContext();
+  console.log(state);
   return (
     <div>
       {state.users.map((user) => {

@@ -31,12 +31,6 @@
       "id": "w6M3x62"
     },
     {
-      "name": "Kaan Uyguroglu",
-      "department": "Scientist",
-      "salary": "6100",
-      "id": "1BJqgQj"
-    },
-    {
       "name": "name1",
       "department": "dep1",
       "salary": "100",
@@ -49,10 +43,16 @@
       "id": "h00J91R"
     },
     {
-      "name": "asdads",
-      "department": "adsasd",
-      "salary": "0",
-      "id": "VZ9fXll"
+      "name": "name4",
+      "department": "dep4",
+      "salary": "4444",
+      "id": "QWPRWHG"
+    },
+    {
+      "name": "Ricky Sanchez",
+      "department": "Scientist",
+      "salary": "999999",
+      "id": "tgAiIWp"
     }
   ]
 }

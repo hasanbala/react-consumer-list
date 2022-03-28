@@ -1,15 +1,16 @@
-import React, { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer, createContext, useContext } from "react";
+import { useFormHook } from "../hooks";
 import { reducer } from "../reducers";
 
-const User = React.createContext(null);
-export const AppUseContext = () => React.useContext(User);
+const User = createContext(null);
+export const AppUseContext = () => useContext(User);
+
 const initialState = { users: [] };
+const initialFormValues = { name: "", department: "", salary: "" };
 
 export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [name, setName] = useState("");
-  const [department, setDepartment] = useState("");
-  const [salary, setSalary] = useState("");
+  const [form, setForm] = useFormHook(initialFormValues);
 
   useEffect(() => {
     (async function () {
@@ -22,14 +23,9 @@ export const UserProvider = ({ children }) => {
   const contextValue = {
     state,
     dispatch,
-    name,
-    setName,
-    department,
-    setDepartment,
-    salary,
-    setSalary,
+    form,
+    setForm,
+    initialFormValues,
   };
-
   return <User.Provider value={contextValue}>{children}</User.Provider>;
 };
-export const UserConsumer = User.Consumer;

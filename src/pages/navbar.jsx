@@ -2,8 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/navbar.css";
 
-export const Navbar = (props) => {
-  const { header } = props;
+export const Navbar = ({ header }) => {
   const [theme, setTheme] = useState(true);
 
   const handleLight = () => {

@@ -1,30 +1,22 @@
-// import { useState } from "react";
 import { AppUseContext } from "../context";
+import { useEffect } from "react";
 import { Forms } from "../components";
+import { useHistory } from "react-router-dom";
 import alertify from "alertifyjs";
 import "../styles/addUser.css";
 
-export const AddUser = (props) => {
-  const {
-    dispatch,
-    name,
-    setName,
-    department,
-    setDepartment,
-    salary,
-    setSalary,
-  } = AppUseContext();
+export const AddUser = () => {
+  const { dispatch, form, setForm, initialFormValues } = AppUseContext();
+  const history = useHistory();
 
-  const changeName = (e) => setName(e.target.value);
-  const changeDepartment = (e) => setDepartment(e.target.value);
-  const changeSalary = (e) => setSalary(e.target.value);
+  useEffect(() => {
+    setForm(initialFormValues);
+  }, []);
 
   const validateForm = () => {
-    if (name === "" || salary === "" || department === "") {
+    if (form.name === "" || form.salary === "" || form.department === "") {
       alertify.error("Please, fill in the all blanks with valid values !!");
-      setName("");
-      setDepartment("");
-      setSalary("");
+      setForm(initialFormValues);
       return false;
     }
     return true;
@@ -32,11 +24,7 @@ export const AddUser = (props) => {
 
   const addUser = async (e) => {
     e.preventDefault();
-    const newUser = {
-      name,
-      department,
-      salary,
-    };
+    const newUser = form;
     if (!validateForm()) {
       return;
     }
@@ -48,24 +36,18 @@ export const AddUser = (props) => {
     const data = await response.json();
 
     await dispatch({ type: "ADD_USER", payload: data });
-    setName("");
-    setDepartment("");
-    setSalary("");
+    setForm(initialFormValues);
     alertify.success("Users Added");
-    props.history.push("/");
+    history.push("/");
   };
 
   return (
     <Forms
       title={"Add User"}
       user={addUser}
-      changeName={changeName}
-      changeDepartment={changeDepartment}
-      changeSalary={changeSalary}
-      name={name}
-      department={department}
-      salary={salary}
+      form={form}
       button={"ADD"}
+      changeForm={setForm}
     />
   );
 };

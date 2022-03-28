@@ -9,11 +9,11 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar header="User App" />
+        <Navbar header="React Consumer List" />
         <Switch>
           <Route exact path="/" component={Users} />
-          <Route exact path="/add" component={AddUser} />
-          <Route exact path="/update/:id" component={UpdateUser} />
+          <Route path="/add" component={AddUser} />
+          <Route path="/update/:id" component={UpdateUser} />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>

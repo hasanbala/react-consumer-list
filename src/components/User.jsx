@@ -8,10 +8,9 @@ export const User = (props) => {
   const [visible, setVisible] = useState(false);
   const { dispatch } = AppUseContext();
   const clickEvent = () => setVisible(!visible);
-  const { idx } = useParams();
 
   const deleteUsers = async () => {
-    await fetch(`http://localhost:3002/users/${idx}`, {
+    await fetch(`http://localhost:3002/users/${id}`, {
       method: "DELETE",
       body: JSON.stringify(),
       headers: { "Content-type": "application/json; charset=UTF-8" },
